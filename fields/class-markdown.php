@@ -103,6 +103,10 @@ class Markdown_Field extends \acf_field {
 			$value = esc_html( $value );
 		}
 
+		if ( defined('REST_REQUEST') && REST_REQUEST ) {
+			return $value;
+		}
+
 		$parser = new \cebe\markdown\GithubMarkdown();
 
 		$parser->html5 = true;
